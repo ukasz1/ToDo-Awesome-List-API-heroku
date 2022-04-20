@@ -1,14 +1,14 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
+
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//   res.send('<h1>ToDo Awesome List Server</h1><a href="#">Go to App</a>');
-// });
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
   res.status(200).json([
     {
       id: 1,

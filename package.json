@@ -4,6 +4,7 @@
   "description": "A server for <a href=\"https://github.com/ukasz1/ToDo-Awesome-List\">ToDo Awesome List</a>👈",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3"
   },
