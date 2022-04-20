@@ -8,12 +8,12 @@ app.use(cors());
 
 app.use(express.json());
 
-app.get('/', (req, res, next) => {
+app.get('/api', (req, res, next) => {
   res.status(200).json([
     {
       id: 1,
       task: 'Praca',
-      description: 'Raport dla Marka',
+      description: 'Raport dla Roberta',
       date: {
         day: '31',
         month: '05',
