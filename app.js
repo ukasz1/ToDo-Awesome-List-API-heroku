@@ -1,15 +1,19 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const xss = require('xss-clean');
 
 const app = express();
 
 //database
 const connectDB = require('./db/connect')
 
-app.use(cors());
 
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
+app.use(xss());
 
 //routers
 const eventRouter = require('./routes/events')
