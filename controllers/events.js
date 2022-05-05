@@ -13,7 +13,14 @@ const getAllEvents = async (req, res) => {
 const createEvent = async (req, res) => {
   try {
     console.log(req.body);
-    const event = await Event.create(req.body)
+    const bodyValidated = req.body;
+    if (Number(bodyValidated.day) < 10) {
+      bodyValidated.day = '0' + bodyValidated.day;
+    }
+    if (Number(bodyValidated.month) < 10) {
+      bodyValidated.month = '0' + bodyValidated.month;
+    }
+    const event = await Event.create(bodyValidated)
     res.status(201).json({ event })
   } catch (error) {
     console.log('Incorrect data: ', error)
