@@ -8,7 +8,7 @@ const EventSchema = new mongoose.Schema({
   year: String,
   hour: String,
   minute: String,
-  unixTime: String
+  unixTime: Number
 })
 
 module.exports = mongoose.model('Event', EventSchema)

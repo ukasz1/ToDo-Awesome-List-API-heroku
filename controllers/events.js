@@ -2,7 +2,7 @@ const Event = require('../models/Event')
 
 const getAllEvents = async (req, res) => {
   try {
-    const events = await Event.find({});
+    const events = await Event.find({}).sort('unixTime');
     res.status(200).json([...events]);
   }
   catch (error) {
@@ -12,6 +12,7 @@ const getAllEvents = async (req, res) => {
 
 const createEvent = async (req, res) => {
   try {
+    console.log(req.body);
     const event = await Event.create(req.body)
     res.status(201).json({ event })
   } catch (error) {
